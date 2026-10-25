@@ -1,0 +1,35 @@
+title: "Rick Colosimo"
+tagline: "SIMPLIFYING COMPLEX BOARD DECISIONS"
+description: "Rick Colosimo – Simplifying complex board decisions"
+url: "https://rickcolosimo.com"
+baseurl: ""
+
+permalink: /:title/
+paginate: 4
+paginate_path: "/page:num/"
+
+collections:
+  pages:
+    output: true
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - _wp_data
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .github

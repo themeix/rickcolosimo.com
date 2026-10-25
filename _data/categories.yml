@@ -1,0 +1,32 @@
+- id: 77
+  name: Client Corner
+  slug: client-corner
+  count: 2
+- id: 25
+  name: Five-minute lawyer
+  slug: five-minute-lawyer
+  count: 47
+- id: 30
+  name: Mentor
+  slug: mentor
+  count: 3
+- id: 78
+  name: nonprofit
+  slug: nonprofit
+  count: 1
+- id: 67
+  name: orphan ideas
+  slug: orphan-ideas
+  count: 2
+- id: 59
+  name: Reviews
+  slug: reviews
+  count: 2
+- id: 31
+  name: Soapbox
+  slug: soapbox-2
+  count: 7
+- id: 1
+  name: Uncategorized
+  slug: uncategorized
+  count: 80

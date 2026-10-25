@@ -1,0 +1,99 @@
+<nav class="bg-white border-b border-gray-100 relative z-30" aria-label="Main Navigation">
+  <div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between lg:justify-end h-auto">
+      
+      <!-- Mobile hamburger button -->
+      <div class="flex lg:hidden py-3">
+        <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded text-gray-700 hover:text-[#98012f] focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Navigation Menu -->
+      <ul class="hidden lg:flex flex-row items-stretch list-none m-0 p-0 text-[14px] font-normal uppercase tracking-wider">
+        {% for item in site.data.navigation.main %}
+          {% assign is_current = false %}
+          {% if page.url == item.url %}
+            {% assign is_current = true %}
+          {% elsif item.url != '/' and page.url contains item.url %}
+            {% assign is_current = true %}
+          {% endif %}
+
+          <li class="relative group border-l border-dotted border-[#bbbbbb] flex items-stretch">
+            {% if item.children %}
+              <div class="flex items-center">
+                <a href="{{ item.url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
+                  {{ item.title }}
+                  <svg class="ml-1.5 w-3 h-3 fill-current transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20">
+                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                  </svg>
+                </a>
+              </div>
+              <!-- Dropdown submenu -->
+              <ul class="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg border border-gray-100 py-3 px-2 min-w-[220px] list-none z-50">
+                {% for child in item.children %}
+                  {% assign child_current = false %}
+                  {% if page.url == child.url %}
+                    {% assign child_current = true %}
+                  {% endif %}
+                  <li class="m-0 mb-1">
+                    <a href="{{ child.url }}" class="block py-2 px-3 border-l-4 border-gray-200 text-gray-700 text-[14px] capitalize tracking-normal hover:bg-[#98012f] hover:text-white hover:border-[#98012f] transition-all duration-150 {% if child_current %}bg-gray-100 border-[#d5ae65]{% endif %}">
+                      {{ child.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <a href="{{ item.url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
+                {{ item.title }}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mobile navigation drawer -->
+  <div class="lg:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+    <div class="px-4 pt-2 pb-4 space-y-1">
+      {% for item in site.data.navigation.main %}
+        {% assign is_current = false %}
+        {% if page.url == item.url %}
+          {% assign is_current = true %}
+        {% endif %}
+        <div>
+          <a href="{{ item.url }}" class="block px-3 py-2 text-base font-medium uppercase {% if is_current %}bg-[#d5ae65] text-white{% else %}text-gray-700 hover:bg-[#98012f] hover:text-white{% endif %}">
+            {{ item.title }}
+          </a>
+          {% if item.children %}
+            <div class="pl-4 space-y-1 mt-1">
+              {% for child in item.children %}
+                <a href="{{ child.url }}" class="block px-3 py-2 text-sm text-gray-600 hover:bg-[#98012f] hover:text-white">
+                  — {{ child.title }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function() {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

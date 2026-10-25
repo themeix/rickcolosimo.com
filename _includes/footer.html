@@ -1,0 +1,117 @@
+<footer class="mt-16 bg-white" aria-label="Site Footer">
+  <!-- 4 Recent Posts Cards -->
+  <div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-gray-100">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for post in site.posts limit:4 %}
+        {% include post-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Contact Rick Colosimo Banner -->
+  <div class="bg-[#98012f] text-[#d5ae65] py-10">
+    <div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <!-- Heading -->
+        <div class="text-center md:text-left">
+          <h4 class="font-sans font-bold text-2xl sm:text-3xl uppercase tracking-[3px] text-white m-0">
+            CONTACT RICK COLOSIMO
+          </h4>
+        </div>
+
+        <!-- Contact info -->
+        <div class="text-center md:text-left space-y-1 font-sans text-base">
+          <div>
+            <a href="mailto:{{ site.data.settings.email }}" class="text-[#d5ae65] hover:text-white transition-colors duration-150">
+              {{ site.data.settings.email }}
+            </a>
+          </div>
+          <div class="text-[#d5ae65]">
+            <a href="tel:{{ site.data.settings.phone }}" class="text-[#d5ae65] hover:text-white transition-colors duration-150">
+              {{ site.data.settings.phone }}
+            </a>
+          </div>
+          <div class="text-[#d5ae65]">
+            {{ site.data.settings.address }}
+          </div>
+        </div>
+
+        <!-- Crests Badge -->
+        <div class="flex items-center justify-center">
+          <img src="/assets/uploads/2019/12/badge.png" alt="Ranger Tab and 27th Infantry Regiment crest" class="h-16 w-auto object-contain">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark Gray Footer Links Section -->
+  <div class="bg-[#4c4c4c] text-[#808080] py-12 border-t-2 border-[#d5ae65]">
+    <div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
+        
+        <!-- Col 1: Director Services -->
+        <div>
+          <h4 class="font-sans text-sm font-normal uppercase tracking-[3px] text-white pb-3 mb-2 border-b border-gray-600">
+            Director Services
+          </h4>
+          <ul class="space-y-2 list-none m-0 p-0 text-sm">
+            {% for item in site.data.navigation.footer_director_services %}
+              <li>
+                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                  {{ item.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Col 2: About Rick -->
+        <div>
+          <h4 class="font-sans text-sm font-normal uppercase tracking-[3px] text-white pb-3 mb-2 border-b border-gray-600">
+            About Rick
+          </h4>
+          <ul class="space-y-2 list-none m-0 p-0 text-sm">
+            {% for item in site.data.navigation.footer_about_rick %}
+              <li>
+                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                  {{ item.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Col 3: Other -->
+        <div>
+          <h4 class="font-sans text-sm font-normal uppercase tracking-[3px] text-white pb-3 mb-2 border-b border-gray-600">
+            Other
+          </h4>
+          <ul class="space-y-2 list-none m-0 p-0 text-sm">
+            {% for item in site.data.navigation.footer_other %}
+              <li>
+                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                  {{ item.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Credits and Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-gray-600 flex flex-col sm:flex-row items-center justify-between text-[11px] uppercase tracking-[2px] text-[#e2e2e2] space-y-4 sm:space-y-0">
+        <div class="flex items-center space-x-2">
+          <span>SITE DESIGN: BRIGHT BIRD CREATIVE</span>
+          <img src="/assets/uploads/2018/08/icon-21x16-bbc-white.png" alt="Bright Bird Creative" class="h-3 w-auto inline-block">
+        </div>
+        <div>
+          © {{ site.data.settings.copyright_year_start }} - {{ 'now' | date: "%Y" }} RICK COLOSIMO. ALL RIGHTS RESERVED.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

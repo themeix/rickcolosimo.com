@@ -1,0 +1,18 @@
+<article class="flex flex-col justify-between h-full bg-white pt-4 pb-0">
+  <div class="border-t-4 border-[#d5ae65] pt-4 mb-4">
+    <h2 class="font-serif font-bold text-xl text-black hover:text-[#98012f] leading-snug mb-2">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </h2>
+    <div class="text-xs text-gray-500 mb-3 font-sans">
+      {{ post.date | date: "%B %-d, %Y" }}
+    </div>
+    <div class="text-sm text-gray-700 leading-relaxed font-sans line-clamp-4">
+      {{ post.excerpt | strip_html | truncatewords: 25 }}
+    </div>
+  </div>
+  <div class="mt-4">
+    <a href="{{ post.url }}" class="card-read-more-btn">
+      READ MORE
+    </a>
+  </div>
+</article>

@@ -1,0 +1,75 @@
+---
+layout: default
+---
+<div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+    <!-- Main Content Column (78% width with dotted border) -->
+    <div class="w-full lg:w-[78%] lg:pr-12 lg:border-r lg:border-dotted lg:border-[#bbbbbb]">
+      <article class="prose-custom">
+        
+        <!-- Post Title -->
+        <h1 class="font-serif font-bold text-3xl sm:text-4xl text-[#98012f] leading-tight mb-2">
+          {{ page.title }}
+        </h1>
+
+        <!-- Post Meta -->
+        <div class="text-xs text-gray-500 mb-8 pb-4 border-b border-dotted border-[#bbbbbb] font-sans">
+          By <span class="text-black">{{ page.author | default: "Rick Colosimo" }}</span> / {{ page.date | date: "%B %-d, %Y" }} / Comments Off
+        </div>
+
+        <!-- Post Body -->
+        <div class="entry-content leading-relaxed text-[18px]">
+          {{ content }}
+        </div>
+
+        <!-- Post Taxonomies -->
+        {% if page.categories or page.tags %}
+          <div class="mt-12 pt-6 border-t border-dotted border-[#bbbbbb] text-sm text-gray-600 space-y-2">
+            {% if page.categories.size > 0 %}
+              <div>
+                <span class="font-bold text-black uppercase tracking-wider text-xs">Categories:</span>
+                {% for cat in page.categories %}
+                  <a href="/category/{{ cat }}/" class="text-[#98012f] hover:underline mr-2">{{ cat }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if page.tags.size > 0 %}
+              <div>
+                <span class="font-bold text-black uppercase tracking-wider text-xs">Tags:</span>
+                {% for tag in page.tags %}
+                  <a href="/tag/{{ tag }}/" class="text-gray-700 hover:text-[#98012f] hover:underline mr-2">#{{ tag }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <!-- Prev / Next Post Navigation -->
+        <div class="mt-12 pt-6 border-t border-dotted border-[#bbbbbb] flex flex-col sm:flex-row justify-between gap-4 font-sans text-sm">
+          {% if page.previous.url %}
+            <a href="{{ page.previous.url }}" class="text-[#98012f] hover:underline flex items-center">
+              « {{ page.previous.title | truncate: 45 }}
+            </a>
+          {% else %}
+            <div></div>
+          {% endif %}
+
+          {% if page.next.url %}
+            <a href="{{ page.next.url }}" class="text-[#98012f] hover:underline flex items-center justify-end">
+              {{ page.next.title | truncate: 45 }} »
+            </a>
+          {% endif %}
+        </div>
+
+      </article>
+    </div>
+
+    <!-- Sidebar Column (22% width) -->
+    <div class="w-full lg:w-[22%]">
+      {% include sidebar.html %}
+    </div>
+
+  </div>
+</div>

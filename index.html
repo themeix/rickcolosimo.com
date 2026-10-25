@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+    <!-- Main Blog Feed Column (78% width with dotted right border) -->
+    <div class="w-full lg:w-[78%] lg:pr-12 lg:border-r lg:border-dotted lg:border-[#bbbbbb]">
+      <div class="space-y-16">
+        {% for post in paginator.posts %}
+          <article class="pb-10 border-b border-dotted border-[#bbbbbb]">
+            
+            <!-- Post Title -->
+            <h2 class="font-serif font-bold text-3xl sm:text-[34px] leading-snug mb-2 text-[#98012f]">
+              <a href="{{ post.url }}" class="text-[#98012f] hover:underline transition-colors">
+                {{ post.title }}
+              </a>
+            </h2>
+
+            <!-- Post Meta -->
+            <div class="text-xs text-gray-500 mb-6 font-sans">
+              By <span class="text-black">{{ post.author | default: "Rick Colosimo" }}</span> / {{ post.date | date: "%B %-d, %Y" }} / Comments Off
+            </div>
+
+            <!-- Post Excerpt -->
+            <div class="text-[18px] leading-[1.6] text-[#4c4c4c] mb-6 font-sans">
+              {{ post.excerpt }}
+            </div>
+
+            <!-- Read More Link -->
+            <div class="text-right">
+              <a href="{{ post.url }}" class="post-read-more-link" aria-label="Read more about {{ post.title }}">
+                Read More
+              </a>
+            </div>
+
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% include pagination.html %}
+    </div>
+
+    <!-- Sidebar Column (22% width) -->
+    <div class="w-full lg:w-[22%]">
+      {% include sidebar.html %}
+    </div>
+
+  </div>
+</div>

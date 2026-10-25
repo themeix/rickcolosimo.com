@@ -1,0 +1,15 @@
+{
+  "name": "rickcolosimo-site",
+  "version": "1.0.0",
+  "description": "RickColosimo.com Jekyll and Tailwind CSS v4 site",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css --watch",
+    "build": "npm run build:css && bundle exec jekyll build",
+    "dev": "concurrently \"npm run watch:css\" \"bundle exec jekyll serve --livereload\""
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+    <!-- Main Content Column -->
+    <div class="w-full lg:w-[78%] lg:pr-12 lg:border-r lg:border-dotted lg:border-[#bbbbbb]">
+      <header class="mb-10 pb-4 border-b border-dotted border-[#bbbbbb]">
+        <h1 class="font-serif font-bold text-3xl sm:text-4xl text-black leading-tight">
+          {{ page.title }}
+        </h1>
+        {% if page.description %}
+          <p class="text-gray-600 mt-2 text-base font-sans">{{ page.description }}</p>
+        {% endif %}
+      </header>
+
+      <div class="space-y-16">
+        {{ content }}
+      </div>
+    </div>
+
+    <!-- Sidebar Column -->
+    <div class="w-full lg:w-[22%]">
+      {% include sidebar.html %}
+    </div>
+
+  </div>
+</div>

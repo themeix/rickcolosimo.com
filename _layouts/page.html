@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+    <!-- Main Content Column (78% width with dotted border) -->
+    <div class="w-full lg:w-[78%] lg:pr-12 lg:border-r lg:border-dotted lg:border-[#bbbbbb]">
+      <article class="prose-custom">
+        <h1 class="font-serif font-bold text-3xl sm:text-4xl lg:text-[40px] text-black leading-tight mb-8">
+          {{ page.title }}
+        </h1>
+        
+        <div class="entry-content">
+          {{ content }}
+        </div>
+      </article>
+    </div>
+
+    <!-- Sidebar Column (22% width) -->
+    <div class="w-full lg:w-[22%]">
+      {% include sidebar.html %}
+    </div>
+
+  </div>
+</div>
