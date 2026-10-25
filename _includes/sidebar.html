@@ -6,13 +6,15 @@
     </form>
   </div>
 
-  <!-- Follow Rick on Twitter -->
+  <!-- Follow on Twitter -->
+  {% if site.data.settings.twitter_url %}
   <div class="widget">
-    <a href="https://twitter.com/rickcolosimo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#98012f] hover:underline font-normal text-base group">
-      <span>Follow Rick on Twitter</span>
+    <a href="{{ site.data.settings.twitter_url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#98012f] hover:underline font-normal text-base group">
+      <span>{{ site.data.settings.twitter_label | default: "Follow Rick on Twitter" }}</span>
       <span class="ml-2 text-lg transition-transform duration-150 group-hover:translate-x-1">→</span>
     </a>
   </div>
+  {% endif %}
 
   <!-- All Blog Posts Button -->
   <div class="widget">
