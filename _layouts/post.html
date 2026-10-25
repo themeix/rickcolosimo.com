@@ -30,7 +30,7 @@ layout: default
               <div>
                 <span class="font-bold text-black uppercase tracking-wider text-xs">Categories:</span>
                 {% for cat in page.categories %}
-                  <a href="/category/{{ cat }}/" class="text-[#98012f] hover:underline mr-2">{{ cat }}</a>
+                  <a href="{{ '/category/' | append: cat | append: '/' | relative_url }}" class="text-[#98012f] hover:underline mr-2">{{ cat }}</a>
                 {% endfor %}
               </div>
             {% endif %}
@@ -39,7 +39,7 @@ layout: default
               <div>
                 <span class="font-bold text-black uppercase tracking-wider text-xs">Tags:</span>
                 {% for tag in page.tags %}
-                  <a href="/tag/{{ tag }}/" class="text-gray-700 hover:text-[#98012f] hover:underline mr-2">#{{ tag }}</a>
+                  <a href="{{ '/tag/' | append: tag | append: '/' | relative_url }}" class="text-gray-700 hover:text-[#98012f] hover:underline mr-2">#{{ tag }}</a>
                 {% endfor %}
               </div>
             {% endif %}
@@ -49,7 +49,7 @@ layout: default
         <!-- Prev / Next Post Navigation -->
         <div class="mt-12 pt-6 border-t border-dotted border-[#bbbbbb] flex flex-col sm:flex-row justify-between gap-4 font-sans text-sm">
           {% if page.previous.url %}
-            <a href="{{ page.previous.url }}" class="text-[#98012f] hover:underline flex items-center">
+            <a href="{{ page.previous.url | relative_url }}" class="text-[#98012f] hover:underline flex items-center">
               « {{ page.previous.title | truncate: 45 }}
             </a>
           {% else %}
@@ -57,7 +57,7 @@ layout: default
           {% endif %}
 
           {% if page.next.url %}
-            <a href="{{ page.next.url }}" class="text-[#98012f] hover:underline flex items-center justify-end">
+            <a href="{{ page.next.url | relative_url }}" class="text-[#98012f] hover:underline flex items-center justify-end">
               {{ page.next.title | truncate: 45 }} »
             </a>
           {% endif %}

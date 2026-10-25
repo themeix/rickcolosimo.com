@@ -1,7 +1,7 @@
 {% if paginator.total_pages > 1 %}
 <nav class="border-t border-b border-dotted border-[#bbbbbb] py-3 my-8 flex items-center justify-end space-x-1.5 font-sans" aria-label="Pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="px-3 py-1.5 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors" aria-label="Previous page">
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="px-3 py-1.5 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors" aria-label="Previous page">
       « Prev
     </a>
   {% endif %}
@@ -12,11 +12,11 @@
         {{ page_num }}
       </span>
     {% elsif page_num == 1 %}
-      <a href="/" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
+      <a href="{{ '/' | relative_url }}" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
         1
       </a>
     {% elsif page_num <= 3 or page_num == paginator.total_pages or page_num == paginator.page or page_num == paginator.previous_page or page_num == paginator.next_page %}
-      <a href="/page{{ page_num }}/" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
+      <a href="{{ '/page' | append: page_num | append: '/' | relative_url }}" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
         {{ page_num }}
       </a>
     {% elsif page_num == 4 and paginator.page > 5 %}
@@ -27,7 +27,7 @@
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="px-3 py-1.5 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors" aria-label="Next page">
+    <a href="{{ paginator.next_page_path | relative_url }}" class="px-3 py-1.5 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors" aria-label="Next page">
       Next »
     </a>
   {% endif %}

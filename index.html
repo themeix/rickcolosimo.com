@@ -12,7 +12,7 @@ layout: default
             
             <!-- Post Title -->
             <h2 class="font-serif font-bold text-3xl sm:text-[34px] leading-snug mb-2 text-[#98012f]">
-              <a href="{{ post.url }}" class="text-[#98012f] hover:underline transition-colors">
+              <a href="{{ post.url | relative_url }}" class="text-[#98012f] hover:underline transition-colors">
                 {{ post.title }}
               </a>
             </h2>
@@ -29,7 +29,7 @@ layout: default
 
             <!-- Read More Link -->
             <div class="text-right">
-              <a href="{{ post.url }}" class="post-read-more-link" aria-label="Read more about {{ post.title }}">
+              <a href="{{ post.url | relative_url }}" class="post-read-more-link" aria-label="Read more about {{ post.title }}">
                 Read More
               </a>
             </div>

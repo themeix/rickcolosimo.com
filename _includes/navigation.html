@@ -25,7 +25,7 @@
           <li class="relative group border-l border-dotted border-[#bbbbbb] flex items-stretch">
             {% if item.children %}
               <div class="flex items-center">
-                <a href="{{ item.url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
+                <a href="{{ item.url | relative_url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
                   {{ item.title }}
                   <svg class="ml-1.5 w-3 h-3 fill-current transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20">
                     <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
@@ -40,14 +40,14 @@
                     {% assign child_current = true %}
                   {% endif %}
                   <li class="m-0 mb-1">
-                    <a href="{{ child.url }}" class="block py-2 px-3 border-l-4 border-gray-200 text-gray-700 text-[14px] capitalize tracking-normal hover:bg-[#98012f] hover:text-white hover:border-[#98012f] transition-all duration-150 {% if child_current %}bg-gray-100 border-[#d5ae65]{% endif %}">
+                    <a href="{{ child.url | relative_url }}" class="block py-2 px-3 border-l-4 border-gray-200 text-gray-700 text-[14px] capitalize tracking-normal hover:bg-[#98012f] hover:text-white hover:border-[#98012f] transition-all duration-150 {% if child_current %}bg-gray-100 border-[#d5ae65]{% endif %}">
                       {{ child.title }}
                     </a>
                   </li>
                 {% endfor %}
               </ul>
             {% else %}
-              <a href="{{ item.url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
+              <a href="{{ item.url | relative_url }}" class="flex items-center px-4 py-3 text-gray-700 transition-colors duration-150 {% if is_current %}bg-[#d5ae65] text-white{% else %}hover:bg-[#98012f] hover:text-white{% endif %}">
                 {{ item.title }}
               </a>
             {% endif %}
@@ -66,13 +66,13 @@
           {% assign is_current = true %}
         {% endif %}
         <div>
-          <a href="{{ item.url }}" class="block px-3 py-2 text-base font-medium uppercase {% if is_current %}bg-[#d5ae65] text-white{% else %}text-gray-700 hover:bg-[#98012f] hover:text-white{% endif %}">
+          <a href="{{ item.url | relative_url }}" class="block px-3 py-2 text-base font-medium uppercase {% if is_current %}bg-[#d5ae65] text-white{% else %}text-gray-700 hover:bg-[#98012f] hover:text-white{% endif %}">
             {{ item.title }}
           </a>
           {% if item.children %}
             <div class="pl-4 space-y-1 mt-1">
               {% for child in item.children %}
-                <a href="{{ child.url }}" class="block px-3 py-2 text-sm text-gray-600 hover:bg-[#98012f] hover:text-white">
+                <a href="{{ child.url | relative_url }}" class="block px-3 py-2 text-sm text-gray-600 hover:bg-[#98012f] hover:text-white">
                   — {{ child.title }}
                 </a>
               {% endfor %}

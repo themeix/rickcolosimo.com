@@ -12,7 +12,7 @@ tag_slug: organization
     {% for post in matching_posts %}
       <article class="pb-8 border-b border-dotted border-[#bbbbbb]">
         <h2 class="font-serif font-bold text-2xl sm:text-3xl text-[#98012f] mb-2">
-          <a href="{{ post.url }}" class="text-[#98012f] hover:underline">{{ post.title }}</a>
+          <a href="{{ post.url | relative_url }}" class="text-[#98012f] hover:underline">{{ post.title }}</a>
         </h2>
         <div class="text-xs text-gray-500 mb-4 font-sans">
           By {{ post.author | default: 'Rick Colosimo' }} / {{ post.date | date: '%B %-d, %Y' }} / Comments Off
@@ -21,7 +21,7 @@ tag_slug: organization
           {{ post.excerpt }}
         </div>
         <div class="text-right">
-          <a href="{{ post.url }}" class="post-read-more-link">Read More</a>
+          <a href="{{ post.url | relative_url }}" class="post-read-more-link">Read More</a>
         </div>
       </article>
     {% endfor %}

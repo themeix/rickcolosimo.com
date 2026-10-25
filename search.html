@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   let posts = [];
   try {
-    const res = await fetch('/search.json');
+    const res = await fetch('{{ "/search.json" | relative_url }}');
     posts = await res.json();
     renderResults(input.value.trim().toLowerCase());
   } catch (err) {

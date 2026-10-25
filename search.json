@@ -6,7 +6,7 @@ permalink: /search.json
   {% for post in site.posts %}
     {
       "title": {{ post.title | jsonify }},
-      "url": {{ post.url | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
       "date": {{ post.date | date: "%B %-d, %Y" | jsonify }},
       "author": {{ post.author | default: "Rick Colosimo" | jsonify }},
       "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncate: 250 | jsonify }},

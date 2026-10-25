@@ -39,7 +39,7 @@
 
         <!-- Crests Badge -->
         <div class="flex items-center justify-center">
-          <img src="{{ site.data.settings.badge_image | default: '/assets/uploads/2019/12/badge.png' }}" alt="Military crests badge" class="h-16 w-auto object-contain">
+          <img src="{{ site.data.settings.badge_image | default: '/assets/uploads/2019/12/badge.png' | relative_url }}" alt="Military crests badge" class="h-16 w-auto object-contain">
         </div>
 
       </div>
@@ -59,7 +59,7 @@
           <ul class="space-y-2 list-none m-0 p-0 text-sm">
             {% for item in site.data.navigation.footer_director_services %}
               <li>
-                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                <a href="{{ item.url | relative_url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
                   {{ item.title }}
                 </a>
               </li>
@@ -75,7 +75,7 @@
           <ul class="space-y-2 list-none m-0 p-0 text-sm">
             {% for item in site.data.navigation.footer_about_rick %}
               <li>
-                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                <a href="{{ item.url | relative_url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
                   {{ item.title }}
                 </a>
               </li>
@@ -91,7 +91,7 @@
           <ul class="space-y-2 list-none m-0 p-0 text-sm">
             {% for item in site.data.navigation.footer_other %}
               <li>
-                <a href="{{ item.url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
+                <a href="{{ item.url | relative_url }}" class="text-[#e2e2e2] hover:text-white hover:underline transition-colors">
                   {{ item.title }}
                 </a>
               </li>
@@ -106,7 +106,7 @@
         <div class="flex items-center space-x-2">
           <span>{{ site.data.settings.footer_credit | default: "SITE DESIGN: BRIGHT BIRD CREATIVE" }}</span>
           {% if site.data.settings.footer_credit_icon %}
-            <img src="{{ site.data.settings.footer_credit_icon }}" alt="Designer Logo" class="h-3 w-auto inline-block">
+            <img src="{{ site.data.settings.footer_credit_icon | relative_url }}" alt="Designer Logo" class="h-3 w-auto inline-block">
           {% endif %}
         </div>
         <div>
