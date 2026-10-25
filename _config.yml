@@ -6,7 +6,7 @@ baseurl: ""
 
 permalink: /:title/
 paginate: 4
-paginate_path: "/page:num/"
+paginate_path: "/page/:num/"
 
 collections:
   pages:

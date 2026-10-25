@@ -16,7 +16,7 @@
         1
       </a>
     {% elsif page_num <= 3 or page_num == paginator.total_pages or page_num == paginator.page or page_num == paginator.previous_page or page_num == paginator.next_page %}
-      <a href="{{ '/page' | append: page_num | append: '/' | relative_url }}" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
+      <a href="{{ '/page/' | append: page_num | append: '/' | relative_url }}" class="px-4 py-2 text-black hover:bg-[#98012f] hover:text-white text-base transition-colors">
         {{ page_num }}
       </a>
     {% elsif page_num == 4 and paginator.page > 5 %}
