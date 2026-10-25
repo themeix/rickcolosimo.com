@@ -1,101 +1,117 @@
 # RickColosimo.com – Jekyll & Tailwind CSS v4 Static Website
 
-This project is a clean, modern, and high-performance Jekyll website styled with Tailwind CSS v4 and designed for direct content editing via YAML and Markdown files, with automated deployment to GitHub Pages via GitHub Actions.
+Rebuilt from the original WordPress website into a maintainable, high-performance static website powered by **Jekyll** and **Tailwind CSS v4**, deployed automatically to **GitHub Pages** via **GitHub Actions**.
 
 ---
 
-## কিভাবে সাইটের কনটেন্ট এডিট করবেন (How to Edit Content)
+## Content Management & Editing Guide
 
-কোনো CMS ছাড়াই আপনি খুব সহজে এই সাইটের সবকিছু এডিট করতে পারবেন:
+All website content is centrally organized in plain YAML data files and Markdown documents. You can edit any page, post, navigation item, or contact detail directly without touching template code.
 
-### ১. সাইট সেটিংস, যোগাযোগ ও ফুটার এডিট করা
-**ফাইল:** `_data/settings.yml`
-- সাইটের নাম, ট্যাগলাইন, বর্ণনা।
-- যোগাযোগের ইমেইল (`email`), ফোন নম্বর (`phone`), ঠিকানা (`address`)।
-- টুইটার লিঙ্ক ও লেবেল।
-- ফুটার ক্রেডিট ও কপিরাইট টেক্সট।
+### 1. Site Metadata, Contact Info & Footer Settings
+**File:** `_data/settings.yml`
+- Website title, tagline, description, and author.
+- Contact section details (`email`, `phone`, `address`).
+- Social links (`twitter_url`, `linkedin_url`, `facebook_url`).
+- Footer credits and copyright information.
 
-### ২. মেনু ও নেভিগেশন পরিবর্তন করা
-**ফাইল:** `_data/navigation.yml`
-- হেডারের প্রধান মেনু আইটেম ও ড্রপডাউন সাবমেনু (`main`)।
-- ফুটারের তিনটি কলামের লিঙ্কসমূহ (`footer_director_services`, `footer_about_rick`, `footer_other`)।
+### 2. Header & Footer Navigation Menus
+**File:** `_data/navigation.yml`
+- **Main Header Menu:** Configure top-level navigation links and nested dropdown submenus (`children`).
+- **Footer Links:** Update links across the three footer columns (`footer_director_services`, `footer_about_rick`, `footer_other`).
 
-### ৩. নতুন ব্লগ পোস্ট তৈরি বা এডিট করা
-**ডিরেক্টরি:** `_posts/`
-- ফরম্যাট: `YYYY-MM-DD-post-title.md` (যেমন: `2026-10-25-my-new-post.md`)
-- পোস্টের শুরুতে ফ্রন্টম্যাটার (Front Matter):
-  ```yaml
+### 3. Creating & Editing Blog Articles
+**Directory:** `_posts/`
+- Naming format: `YYYY-MM-DD-slug.md` (e.g., `2026-10-25-my-new-article.md`)
+- File structure:
+  ```markdown
   ---
   layout: post
-  title: "আপনার পোস্টের শিরোনাম"
+  title: "Your Article Title"
   date: 2026-10-25 10:00:00 -0400
   author: "Rick Colosimo"
-  permalink: /your-post-slug/
-  excerpt: "পোস্টের সংক্ষিপ্ত বিবরণ..."
+  permalink: /your-article-slug/
+  excerpt: "Short summary of the article..."
   categories:
     - five-minute-lawyer
   tags:
     - contracts
-    - advice
+    - governance
   ---
 
-  এখানে আপনার আর্টিকেলের মূল বক্তব্য Markdown ফরম্যাটে লিখুন।
+  Write the article body here using standard Markdown formatting.
   ```
 
-### ৪. পেইজ তৈরি বা এডিট করা
-**ডিরেক্টরি:** `_pages/`
-- যেমন: `about.md`, `services.md`, `deals.md`, `tools.md`।
-- ফ্রন্টম্যাটার:
-  ```yaml
+### 4. Creating & Editing Static Pages
+**Directory:** `_pages/`
+- Contains existing pages such as `about.md`, `my-approach.md`, `services.md`, `governance.md`, `finance.md`, `deals.md`, `tools.md`, etc.
+- Front matter format:
+  ```markdown
   ---
   layout: page
-  title: "About Rick"
-  permalink: /about/
+  title: "Page Title"
+  permalink: /custom-url/
   ---
 
-  এখানে পেইজের কন্টেন্ট লিখুন।
+  Page content written in Markdown.
   ```
 
-### ৫. ইমেজ এবং ফাইল আপলোড করা
-- নতুন ছবি বা ফাইল `assets/uploads/` ফোল্ডারে রাখুন।
-- আর্টিকেলে ব্যবহার করতে লিখুন:
+### 5. Media & File Assets
+- Place images or downloadable files in `assets/uploads/`.
+- Reference them in Markdown:
   ```markdown
-  ![ছবির বিবরণ](/assets/uploads/your-image.png)
+  ![Alt description](/assets/uploads/your-image.png)
   ```
 
 ---
 
-## লোকাল ডেভেলপমেন্ট ও বিল্ড কমান্ডস
+## Local Development & Build Commands
 
-### ১. ডিপেন্ডেন্সি ইনস্টল (প্রথমবার)
+### 1. Install Dependencies
 ```bash
 npm install
 bundle install
 ```
 
-### ২. Tailwind CSS কম্পাইল করা
+### 2. Compile Tailwind CSS v4
 ```bash
 npm run build:css
 ```
 
-### ৩. সাইট রান ও লাইভ প্রিভিউ দেখা
+### 3. Run Development Server with Live Reload
 ```bash
 bundle exec jekyll serve
 ```
-ব্রাউজারে `http://localhost:4000` ওপেন করলেই সাইটটি দেখতে পাবেন।
+Open `http://localhost:4000/` in your browser.
 
-### ৪. সম্পূর্ণ প্রোডাকশন বিল্ড
+### 4. Full Production Build Test
 ```bash
 npm run build
 ```
 
 ---
 
-## গিটহাব পেজে ডিপ্লয়মেন্ট (Deployment)
+## Automated Deployment to GitHub Pages
 
-প্রোজেক্টটি গিটহাবে পুশ করলে স্বয়ংক্রিয়ভাবে GitHub Actions-এর মাধ্যমে কম্পাইল হয়ে GitHub Pages-এ লাইভ হয়ে যাবে।
+This repository is configured with a GitHub Actions workflow (`.github/workflows/pages.yml`). Whenever you push changes to the `main` branch, the workflow automatically compiles Tailwind CSS v4, builds the Jekyll site, and deploys the static files to GitHub Pages.
+
 ```bash
 git add .
 git commit -m "Update site content"
 git push origin main
 ```
+
+---
+
+## Custom Domain Configuration (`rickcolosimo.com`)
+
+The repository includes a `CNAME` file pointing to `rickcolosimo.com`. To direct domain traffic to GitHub Pages, configure your DNS provider with the following records:
+
+- **Apex Domain (`@` A Records):**
+  - `185.199.108.153`
+  - `185.199.109.153`
+  - `185.199.110.153`
+  - `185.199.111.153`
+- **Subdomain (`www` CNAME Record):**
+  - Name: `www`
+  - Target: `<your-username>.github.io`

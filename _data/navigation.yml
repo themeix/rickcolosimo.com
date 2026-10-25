@@ -1,9 +1,9 @@
 # ========================================================
-# নেভিগেশন মেনু কনফিগারেশন (Navigation Menus)
+# Navigation Menus Configuration
 # ========================================================
 
-# ১. প্রধান হেডার মেনু (Top Header Navigation)
-# সাব-মেনু (ডপডাউন) যোগ করতে চাইলে 'children' ব্যবহার করুন
+# 1. Main Header Navigation
+# Use 'children' to define dropdown submenu items
 main:
   - title: "Home"
     url: "/"
@@ -28,7 +28,7 @@ main:
       - title: "Legal"
         url: "/about/legal/"
 
-# ২. ফুটার কলাম ১: Director Services লিঙ্কসমূহ
+# 2. Footer Column 1: Director Services Links
 footer_director_services:
   - title: "Why do I need a board?"
     url: "/why-do-i-need-an-independent-director/"
@@ -39,14 +39,14 @@ footer_director_services:
   - title: "Deals"
     url: "/services/deals/"
 
-# ৩. ফুটার কলাম ২: About Rick লিঙ্কসমূহ
+# 3. Footer Column 2: About Rick Links
 footer_about_rick:
   - title: "My Approach"
     url: "/about/my-approach/"
   - title: "Legal"
     url: "/about/legal/"
 
-# ৪. ফুটার কলাম ৩: Other লিঙ্কসমূহ
+# 4. Footer Column 3: Other Links
 footer_other:
   - title: "Home"
     url: "/"

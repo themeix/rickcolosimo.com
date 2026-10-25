@@ -1,5 +1,5 @@
 # ========================================================
-# সাইট ও ব্র্যান্ড কনফিগারেশন (Site & Brand Settings)
+# Site & Brand Configuration
 # ========================================================
 title: "Rick Colosimo"
 tagline: "SIMPLIFYING COMPLEX BOARD DECISIONS"
@@ -7,8 +7,8 @@ description: "Rick Colosimo – Simplifying complex board decisions"
 author: "Rick Colosimo"
 
 # ========================================================
-# যোগাযোগ তথ্য (Contact Information)
-# এই তথ্যগুলো ফুটারের লাল/মেরুন ব্যানার সেকশনে প্রদর্শিত হয়
+# Contact Information
+# Rendered in the burgundy contact bar across all pages
 # ========================================================
 contact_title: "CONTACT RICK COLOSIMO"
 email: "rick@thoughtstorm.com"
@@ -17,7 +17,7 @@ address: "P.O. Box 508, Ridgewood, NJ 07451"
 badge_image: "/assets/uploads/2019/12/badge.png"
 
 # ========================================================
-# সোশ্যাল মিডিয়া ও সাইডবার লিঙ্ক (Social & Sidebar)
+# Social Media & Sidebar Links
 # ========================================================
 twitter_label: "Follow Rick on Twitter"
 twitter_url: "https://twitter.com/rickcolosimo"
@@ -25,7 +25,7 @@ linkedin_url: "https://www.linkedin.com/in/rickcolosimo"
 facebook_url: "https://www.facebook.com/rickcolosimo"
 
 # ========================================================
-# ফুটার ও কপিরাইট (Footer & Copyright)
+# Footer & Copyright Information
 # ========================================================
 copyright_year_start: "2008"
 copyright_name: "RICK COLOSIMO"
